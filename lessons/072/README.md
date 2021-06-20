@@ -57,7 +57,9 @@ kubectl get pods -n monitoring
 kubectl get svc -n monitoring 
 ```
 ```bash
-kubectl port-forward svc/monitoring-kube-prometheus-prometheus 9090 -n monitoring
+kubectl port-forward \
+svc/monitoring-kube-prometheus-prometheus 9090 \
+-n monitoring
 ```
 
 - Go to `http://localhost:9090` and select `targets`
@@ -67,6 +69,9 @@ kubectl get cm kube-proxy-config -n kube-system -o yaml
 ```
 ```bash
 kubectl -n kube-system get cm kube-proxy-config -o yaml |sed 's/metricsBindAddress: 127.0.0.1:10249/metricsBindAddress: 0.0.0.0:10249/' | kubectl apply -f -
+```
+```bash
+watch -n 1 -t kubectl get pods -n kube-system
 ```
 ```bash
 kubectl -n kube-system patch ds kube-proxy -p "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"updateTime\":\"`date +'%s'`\"}}}}}"
