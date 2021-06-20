@@ -14,19 +14,19 @@ eksctl create cluster -f eks.yaml
 - Update following variables
 
 ```yaml
-etcd: false
-kubeScheduler: false
-adminPassword: test123
-kubeControllerManager: 
+etcd: false             # line 37
+kubeScheduler: false    # line 53
+adminPassword: test123  # line 628
+kubeControllerManager:  # line 910
   enabled: false
-kubeEtcd: 
+kubeEtcd:               # line 1057
   enabled: false
-kubeScheduler: 
+kubeScheduler:          # line 1122
   enabled: false
-serviceMonitorSelector: 
+serviceMonitorSelector: # line 2050
   matchLabels: 
     prometheus: devops
-commonLabels:
+commonLabels:           # line 27
   prometheus: devops
 ```
 
