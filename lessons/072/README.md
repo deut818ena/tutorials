@@ -78,6 +78,8 @@ kubectl port-forward svc/monitoring-grafana -n monitoring 3000:80
   - Kubernetes / Kubelet
   - USE Method / Cluster
 
+### 2. Deploy Postgres Helm Chart
+
 - Download `postgres-values.yaml` file for **Postgres** from [here](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
 
 ```bash
@@ -113,7 +115,7 @@ bitnami/postgresql \
 kubectl get servicemonitors -n db
 ```
 
-### Service Monitor
+### 3. Create Service Monitor for Postgres
 - Create `service-monitor.yaml`
 ```yaml
 ---
