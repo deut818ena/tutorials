@@ -36,10 +36,10 @@ helm search repo kube-prometheus-stack
 
 ```bash
 helm install monitoring \
-prometheus-community/kube-prometheus-stack
---values prometheus-values.yaml
---version 16.10.0
---namespace monitoring
+prometheus-community/kube-prometheus-stack \
+--values prometheus-values.yaml \
+--version 16.10.0 \
+--namespace monitoring \
 --create-namespace
 ```
 
