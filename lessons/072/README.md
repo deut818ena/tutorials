@@ -31,7 +31,8 @@ commonLabels:           # line 27
 ```
 
 ```bash
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add prometheus-community \
+https://prometheus-community.github.io/helm-charts
 ```
 ```bash
 helm repo update
