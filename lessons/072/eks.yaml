@@ -2,7 +2,7 @@
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 metadata:
-  name: my-cluster-072-v2
+  name: my-cluster-072-v4
   region: us-east-1
   version: "1.20"
 availabilityZones:
@@ -17,5 +17,3 @@ managedNodeGroups:
   maxSize: 10
   desiredCapacity: 2
   volumeSize: 20
-  ssh:
-    publicKeyPath: ~/.ssh/id_rsa.pub
