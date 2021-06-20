@@ -4,6 +4,11 @@
 
 ## Steps
 
+### (Optional) Create EKS Cluster
+```bash
+eksctl create cluster -f eks.yaml
+```
+
 ### 1. Deploy Prometheus Stack Helm Chart
 - Download `prometheus-values.yaml` file for **Prometheus** from [here](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack)
 - Update following variables
