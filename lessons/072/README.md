@@ -43,6 +43,18 @@ prometheus-community/kube-prometheus-stack \
 --create-namespace
 ```
 
+```bash
+kubectl get pods -n monitoring
+```
+```bash
+kubectl get svc -n monitoring 
+```
+```bash
+kubectl port-forward svc/monitoring-kube-prometheus-prometheus 9090 -n monitoring
+```
+
+- Go to `http://localhost:9090` and select `targets`
+
 - Download `postgres-values.yaml` file for **Postgres** from [here](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
 
 ## Clean Up
