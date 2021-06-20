@@ -4,7 +4,7 @@
 
 ## Steps
 
-### Create EKS Cluster (Optional)
+### 0. Create EKS Cluster (Optional)
 ```bash
 eksctl create cluster -f eks.yaml
 ```
