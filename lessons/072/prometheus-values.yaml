@@ -24,7 +24,8 @@ fullnameOverride: ""
 
 ## Labels to apply to all resources
 ##
-commonLabels: {}
+commonLabels:
+  prometheus: devops
 # scmhash: abc123
 # myLabel: aakkmd
 
@@ -34,7 +35,7 @@ defaultRules:
   create: true
   rules:
     alertmanager: true
-    etcd: true
+    etcd: false
     general: true
     k8s: true
     kubeApiserver: true
@@ -50,7 +51,7 @@ defaultRules:
     kubernetesResources: true
     kubernetesStorage: true
     kubernetesSystem: true
-    kubeScheduler: true
+    kubeScheduler: false
     kubeStateMetrics: true
     network: true
     node: true
@@ -625,7 +626,7 @@ grafana:
   ##
   defaultDashboardsEnabled: true
 
-  adminPassword: prom-operator
+  adminPassword: test123
 
   ingress:
     ## If true, Grafana Ingress will be created
@@ -907,7 +908,7 @@ kubelet:
 ## Component scraping the kube controller manager
 ##
 kubeControllerManager:
-  enabled: true
+  enabled: false
 
   ## If your kube controller manager is not deployed as a pod, specify IPs it can be found on
   ##
@@ -1054,7 +1055,7 @@ kubeDns:
 ## Component scraping etcd
 ##
 kubeEtcd:
-  enabled: true
+  enabled: false
 
   ## If your etcd is not deployed as a pod, specify IPs it can be found on
   ##
@@ -1119,7 +1120,7 @@ kubeEtcd:
 ## Component scraping kube scheduler
 ##
 kubeScheduler:
-  enabled: true
+  enabled: false
 
   ## If your kube scheduler is not deployed as a pod, specify IPs it can be found on
   ##
@@ -2047,9 +2048,9 @@ prometheus:
     ##
     serviceMonitorSelector: {}
     ## Example which selects ServiceMonitors with label "prometheus" set to "somelabel"
-    # serviceMonitorSelector:
-    #   matchLabels:
-    #     prometheus: somelabel
+    serviceMonitorSelector:
+      matchLabels:
+        prometheus: devops
 
     ## Namespaces to be selected for ServiceMonitor discovery.
     ##

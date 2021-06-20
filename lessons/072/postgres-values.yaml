@@ -152,7 +152,7 @@ postgresqlUsername: postgres
 ## Create a database
 ## ref: https://github.com/bitnami/bitnami-docker-postgresql/blob/master/README.md#creating-a-database-on-first-run
 ##
-# postgresqlDatabase:
+postgresqlDatabase: test
 
 ## PostgreSQL data dir
 ## ref: https://github.com/bitnami/bitnami-docker-postgresql/blob/master/README.md
@@ -731,7 +731,7 @@ tls:
 ## Configure metrics exporter
 ##
 metrics:
-  enabled: false
+  enabled: true
   # resources: {}
   service:
     type: ClusterIP
@@ -741,7 +741,8 @@ metrics:
     loadBalancerIP:
   serviceMonitor:
     enabled: false
-    additionalLabels: {}
+    additionalLabels:
+      prometheus: devops
     # namespace: monitoring
     # interval: 30s
     # scrapeTimeout: 10s
