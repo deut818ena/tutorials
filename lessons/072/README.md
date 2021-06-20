@@ -38,7 +38,7 @@ https://prometheus-community.github.io/helm-charts
 helm repo update
 ```
 ```bash
-helm search repo kube-prometheus-stack
+helm search repo kube-prometheus-stack --max-col-width 23
 ```
 
 ```bash
