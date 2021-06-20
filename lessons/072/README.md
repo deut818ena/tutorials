@@ -81,7 +81,9 @@ kubectl -n kube-system patch ds kube-proxy -p "{\"spec\":{\"template\":{\"metada
 - Wait 20-30 min to get more data in Prometheus
 
 ```bash
-kubectl port-forward svc/monitoring-grafana -n monitoring 3000:80
+kubectl port-forward \
+svc/monitoring-grafana 3000:80 \
+-n monitoring 
 ```
 
 - Open following dashboards
