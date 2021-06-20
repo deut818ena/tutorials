@@ -160,9 +160,6 @@ kubectl get prometheus monitoring-kube-prometheus-prometheus -oyaml -n monitorin
 ## Clean Up
 ```bash
 helm repo remove prometheus-community bitnami
-```
-
-```bash
 helm uninstall monitoring -n monitoring
 helm uninstall postgres -n db
 kubectl delete crd alertmanagerconfigs.monitoring.coreos.com
