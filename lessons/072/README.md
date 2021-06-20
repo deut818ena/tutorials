@@ -93,8 +93,6 @@ svc/monitoring-grafana 3000:80 \
 
 ### 2. Deploy Postgres Helm Chart
 
-- Download `postgres-values.yaml` file for **Postgres** from [here](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
-
 ```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
 ```
@@ -102,15 +100,18 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
 ```
 ```bash
-helm search repo postgresql
+helm search repo postgresql --max-col-width 23
 ```
+
+- Download `postgres-values.yaml` file for **Postgres** from [here](https://github.com/bitnami/charts/tree/master/bitnami/postgresql)
+
 
 - Update following variables
 ```yaml
-postgresqlDatabase: test
-metrics:
+postgresqlDatabase: test  # line 155
+metrics:                  # line 734
   enabled: true
-serviceMonitor:
+serviceMonitor:           # line 744
   enabled: false
   additionalLabels:
     prometheus: devops
@@ -125,7 +126,7 @@ bitnami/postgresql \
 --create-namespace
 ```
 ```bash
-kubectl get servicemonitors -n db
+kubectl get pods -n db
 ```
 
 ### 3. Create Service Monitor for Postgres
@@ -153,6 +154,12 @@ spec:
       <labels>
 ```
 ```bash
+kubectl get prometheus \
+monitoring-kube-prometheus-prometheus \
+-o yaml \
+-n monitoring
+```
+```bash
 kubectl get endpoints -n db
 ```
 
@@ -165,7 +172,7 @@ kubectl describe endpoints postgres-postgresql-metrics -n db
 ```
 
 ```bash
-kubectl get prometheus monitoring-kube-prometheus-prometheus -oyaml -n monitoring
+kubectl apply -f service-monitor.yaml
 ```
 
 - Import Grafana dashboard `9628`
