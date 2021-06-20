@@ -171,3 +171,6 @@ kubectl delete crd prometheusrules.monitoring.coreos.com
 kubectl delete crd servicemonitors.monitoring.coreos.com
 kubectl delete crd thanosrulers.monitoring.coreos.com
 ```
+```bash
+eksctl delete cluster -f eks.yaml
+```
